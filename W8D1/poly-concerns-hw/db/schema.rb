@@ -29,11 +29,10 @@ ActiveRecord::Schema.define(version: 20191007151412) do
 
   create_table "toys", force: :cascade do |t|
     t.string "name", null: false
-    t.bigint "toyable_id"
-    t.string "toyable_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["name", "toyable_id", "toyable_type"], name: "index_toys_on_name_and_toyable_id_and_toyable_type", unique: true
+    t.string "toyable_type"
+    t.bigint "toyable_id"
     t.index ["name"], name: "index_toys_on_name", unique: true
     t.index ["toyable_id"], name: "index_toys_on_toyable_id"
     t.index ["toyable_type", "toyable_id"], name: "index_toys_on_toyable_type_and_toyable_id"
